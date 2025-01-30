@@ -9,7 +9,7 @@ win = tk.Tk()
 win.title(f'Text Editor - {file_name}')
 win.minsize(width=400, height=400)
 win.geometry('600x400')
-win.iconbitmap('icon.ico')
+
 
 
 def new_file():
@@ -23,6 +23,8 @@ def new_file():
             with open(file_path, "w") as file:
                 file.write(txt.get("1.0", tk.END))
                 messagebox.showinfo("Secess", "File saved")
+                win.title(f'Text Editor - {file_path}')
+
         except Exception  as e:
             messagebox.showwarning("error", f"Not Found{e}")
 
@@ -93,11 +95,11 @@ rd_s = img_rd.subsample(8,8)
 
 
 
-nw = tk.Button(mnu, image=nw_s, bg='#556644',borderwidth=0,activebackground='#556644').pack(side=tk.LEFT, padx=10)
+nw = tk.Button(mnu, image=nw_s, bg='#556644',borderwidth=0,activebackground='#556644', command=new_file).pack(side=tk.LEFT, padx=10)
 
 op = tk.Button(mnu, image=op_s, bg='#556644',borderwidth=0,activebackground='#556644', command=open_file).pack(side=tk.LEFT, padx=0)
 
-sve = tk.Button(mnu, image=sve_s, bg='#556644',borderwidth=0,activebackground='#556644', command=new_file).pack(side=tk.LEFT, padx=4)
+sve = tk.Button(mnu, image=sve_s, bg='#556644',borderwidth=0,activebackground='#556644').pack(side=tk.LEFT, padx=4)
 
 sveas = tk.Button(mnu, image=sveas_s, bg='#556644',borderwidth=0,activebackground='#556644').pack(side=tk.LEFT, padx=0)
 
